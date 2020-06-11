@@ -1,0 +1,54 @@
+<div class="dashboard">
+<div class="dashboard-navbar">{{> nav}}</div>
+<div class="dashboard-tweetbox">
+<div class="tweet-container">
+    <div class="cross-button-container">
+        <a href=""><img src="/images/dash_tweetbox/svg0.svg" class="cross-button icon" alt=""></a>
+    </div>
+    <div class="tweet-body-container">
+        <div class="avatar-img"></div>
+        <form action="/dashboard" method="post" class="tweet form">
+            <div>
+                <label for="tweet"></label>
+                <textarea name="message" id="message" cols="100" placeholder="Quoi de neuf ?"></textarea>
+                <div class="tweet-buttons">
+                    <div class="tweet-icons">
+                        <a href=""><img src="/images/dash_navbar/icons_tweetbox/svg1.svg" class="post picture icon" alt=""></a>
+                        <a href=""><img src="/images/dash_navbar/icons_tweetbox/svg2.svg" class="post gif icon" alt=""></a>
+                        <a href=""><img src="/images/dash_navbar/icons_tweetbox/svg3.svg" class="post poll icon" alt=""></a>
+                        <a href=""><img src="/images/dash_navbar/icons_tweetbox/svg4.svg" class="post emoji icon" alt=""></a>
+                        <a href=""><img src="/images/dash_navbar/icons_tweetbox/svg5.svg" class="post planner icon" alt=""></a>
+                    </div>
+                    <button type="submit" class="submit-button">Tweeter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="user-posts-container">
+    <h3>Messages publiés</h3>
+    {{#each tweets}}
+    <div class="post-box">
+        <a class="avatar" href="tweet/{{row.id}}">
+            <img src="/images/dash_navbar/icons_tweetbox/forfun.png" alt="">
+        </a>
+        <div class="text-content">
+            <div class="metadata">
+                <div class="author">
+                    {{row.id_author}}
+                </div>
+                <div class="date">
+                    
+                    {{moment row.creation "fromNow"}}
+                </div>
+            </div>
+            <div class="post-content">
+                <p class="post-text">{{row.text}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+</div>
+<div class="dashboard-search">Search</div>
+</div>

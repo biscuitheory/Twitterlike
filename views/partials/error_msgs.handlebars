@@ -1,0 +1,22 @@
+<div class="error-msgs">
+    {{#if passwordCheck}}
+    <div class="box-errors">
+        <h4>{{passwordCheck}}</h4>
+    </div>
+    {{/if}}
+    {{#if emailCheckExists}}
+    <div class="box-errors">
+        <h4>{{emailCheckExists}}</h4>
+    </div>
+    {{/if}}
+    {{#if errors}}
+    <div class="box-errors">
+        <h4>{{errors}}</h4>
+    </div>
+    {{/if}}
+    {{#if usernameInvalid}}
+    <div class="box-errors">
+        <h4>{{usernameInvalid}}</h4>
+    </div>
+    {{/if}}
+</div>

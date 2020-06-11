@@ -1,0 +1,283 @@
+@import "../base/_reset.css";
+@import "../base/_typography.css";
+
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.dashboard-navbar {
+    width: 25%;
+}
+
+nav{
+    /* background-color: red; */
+    height: 96vh;
+    padding: 1em;
+    padding-top: 0;
+    border-right: 1px solid rgba(172, 172, 172, 0.432);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.nav_container{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo{
+    height: 1.7rem;
+}
+
+.navbar-icon{
+    height: 1.9rem;
+}
+
+.box-link{
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    padding: 0.3em;
+    width: 80%;
+    margin-top: 1em;
+    cursor: pointer;
+    border-radius: 4rem;
+    padding: 0.5em;
+}
+
+.box-link h3{
+    margin: 0;
+    margin-left: 1em;
+    margin-top: 0.3em;
+    color: black;
+}
+
+.linkhover:hover{
+    background-color: #E8F5FE;
+    transition-duration: 0.3s;
+    color: #1EA1F2;
+}
+
+.linkhover:hover h3{
+    color: #1EA1F2;
+}
+
+.nav_container button{
+    height: 3.3rem;
+    width: 85%;
+    border-radius: 3rem;
+    font-size: 0.9em;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition-duration: 0.3s;
+    color: #ffffff;
+    background-color: #1EA1F2;
+    border: none;  
+    margin-top: 1.3em;
+    font-size: 1em;
+}
+
+.nav_container button:hover{
+    background-color: rgb(30, 139, 207);
+}
+
+.account{
+    /* background-color: red; */
+    height: 4%;
+    padding: 1em;
+    width: 62%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+.account:hover{
+    background-color: #E8F5FE;
+    transition-duration: 0.3s;
+}
+
+.img_profile{
+    height: 3rem;
+}
+
+.account-infos{
+    /* background-color: purple; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    margin-left: 1em;
+}
+
+.account-infos h5, h6{
+    margin: 0.3em;
+    font-size: 0.8em;
+}
+
+.account-infos h6{
+    color: grey;
+    font-weight: 400;
+}
+
+.icon_arrow{
+    height: 1rem;
+    margin-left: 1em;
+}
+
+.dashboard-tweetbox {
+    width: 40%;
+    text-align: center;
+}
+
+.dashboard-tweetbox h3 {
+    font-size: 1.6em;
+}
+
+.tweet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40vh;
+}
+
+.cross-button-container {
+    width: 30%;
+    border-bottom: 1px solid grey;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.tweet-body-container {
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+}
+
+.avatar-img {
+    order: 1;
+    height: 3em;
+    width: 10%;
+    border: 1px solid #1EA1F2;
+    border-radius: 50%;
+}
+
+form {
+    display: flex;
+    width: 80%;
+    height: 20vh;
+    order: 2;
+}
+
+textarea {
+    width: 100%;
+    height: 80%;
+}
+
+.tweet-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tweet-icons img {
+    padding-right: 0.6em;
+}
+
+a {
+    cursor: pointer;
+}
+
+.icon {
+    height: 1.1em;
+    filter: invert(48%) sepia(100%) saturate(412%) hue-rotate(159deg) brightness(95%) contrast(101%);
+}
+
+.submit-button {
+    height: 1.8rem;
+    width: 25%;
+    border-radius: 4rem;
+    background-color: #1EA1F2;
+    opacity: 70%;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 700;
+    border: 1px solid #1EA1F2;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    outline: none;
+}
+
+.user-posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh;
+}
+
+.post-box {
+    display: flex;
+    border: 1px solid black;
+    width: 30vw;
+    height: 15vh;
+}
+
+.avatar {
+    width: 10%;
+    /* border: 1px solid green; */
+}
+
+.avatar img {
+    order: 1;
+    width: 100%;
+    /* border: 1px solid salmon; */
+}
+
+.text-content {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 10vh;
+}
+
+.metadata {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 1em;
+}
+
+.author {
+    font-size: 0.8em;
+    font-weight: bold;
+    padding-right: 1em;
+}
+
+.date {
+    font-size: 0.8em;
+}
+
+.post-content {
+    width: 90%;
+    height: 10vh;
+    margin-left: 1em;
+    /* border: 1px solid red; */
+}
+
+.post-text {
+    font-size: 0.8em;
+}
+
+.dashboard-search {
+    width: 25%;
+}
