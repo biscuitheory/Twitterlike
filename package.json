@@ -1,0 +1,23 @@
+{
+  "name": "twitterlike",
+  "version": "1.0.0",
+  "description": "Twitterlike project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biscuitheory/Twitterlike.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biscuitheory/Twitterlike/issues"
+  },
+  "homepage": "https://github.com/biscuitheory/Twitterlike#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
