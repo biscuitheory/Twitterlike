@@ -1,6 +1,11 @@
 <div class='container'>
     <div class="side-left"></div>
     <div class="side-right">
+         {{#if errors}}
+            <div class="box-errors">
+                <h4>{{errors}}</h4>
+            </div>
+         {{/if}}
         <img src="/images/logo.svg" alt='logo'/>
         <h3>Se connecter à Twitter</h3>
         <form method='POST' action='/login'>

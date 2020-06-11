@@ -1,6 +1,7 @@
 // Importation modules npm
 const express = require('express')
 const exphbs = require('express-handlebars')
+const bodyParser = require("body-parser");
 
 // Instanciation d'express
 const app = express()
@@ -13,45 +14,15 @@ app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
-// Page d'accueil
-app.get('/', (req,res) => {
-    res.render('home', {
-        style: '/css/layouts/home.css',
-        title: "Twitter. C'est ce qui se passe dans le monde"
-    })
-})
+// MIDDLEWARES
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-// Page d'inscription
-app.get('/signup', (req, res) => {
-    res.render('signup', {
-        style: '/css/layouts/signup.css',
-        title: 'Inscription / Twitter',
-    })
-})
-
-// Page de connexion
-app.get('/login', (req, res) => {
-    res.render('login', {
-        style: '/css/layouts/login.css',
-        title: 'Connexion / Twitter'
-    })
-})
-
-// Page dashboard
-app.get('/dashboard', (req, res) => {
-    res.render('dashboard', {
-        style: '/css/layouts/dashboard.css',
-        title: 'Accueil / Twitter'
-    })
-})
-
-// Page error 404
-app.get('*', (req,res) => {
-    res.render('error404', {
-        style: '/css/layouts/dashboard.css',
-        title: 'Page introuvable / Twitter'
-    })
-})
+// ROUTES
+app.use(require('./routes/authRoutes.js'))
+app.use(require('./routes/homeRoute.js'))
+app.use(require('./routes/dashboardRoute.js'))
+app.use(require('./routes/error404Route.js'))
 
 // Application Listen (http://localhost:8080/)
 app.listen(PORT, () => {
