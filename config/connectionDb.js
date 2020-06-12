@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
 // connexion à la base de données
 connection.connect(function(err) {
     if (err) {
-    const sql = "CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname TEXT, firstname TEXT, username TEXT, birthdate DATE, gender TEXT, tel TEXT, city TEXT, email TEXT, password TEXT, avatar TEXT)"
+    const sql = "CREATE TABLE IF NOT EXISTS users(id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname TEXT, firstname TEXT, birthdate DATE, gender TEXT, city TEXT, email TEXT, password TEXT, username TEXT, tel BIGINT, avatar TEXT)"
     connection.query(sql, function (err, result) {
         if (err) {
             console.log("Table créée ou déjà existante! ✅");

@@ -3,10 +3,10 @@
         <div class="box-link">
             <a href='/dashboard/{{username}}'><img class='logo' src='/images/logo.svg' alt='logo' /></a>
         </div>
-        <div class='box-link linkhover'>
+        <a href="/dashboard/{{username}}"><div class='box-link linkhover'>
             <img class="navbar-icon" src='/images/dash_navbar/icons_navbar/svg7.svg' alt='iconHome' />
             <h3>Accueil</h3>
-        </div>
+        </div></a>
         <div class='box-link linkhover'>
             <img class="navbar-icon" src='/images/dash_navbar/icons_navbar/svg8.svg' alt='iconHome' />
             <h3>Explorer</h3>
@@ -27,22 +27,28 @@
             <img class="navbar-icon" src='/images/dash_navbar/icons_navbar/svg12.svg' alt='iconHome' />
             <h3>Listes</h3>
         </div>
-        <div class='box-link linkhover'>
+        <a href="/{{username}}"><div class='box-link linkhover'>
             <img class="navbar-icon" src='/images/dash_navbar/icons_navbar/svg13.svg' alt='iconHome' />
             <h3>Profil</h3>
-        </div>
+        </div></a>
         <div class='box-link linkhover'>
             <img class="navbar-icon" src='/images/dash_navbar/icons_navbar/svg14.svg' alt='iconHome' />
             <h3>Plus</h3>
         </div>
         <button type="submit">Tweeter</button>
     </div>
-    <div class="account">
-        <img class="img_profile"src="/images/dash_navbar/icons_tweetbox/forfun.png" alt='profileImg' />
+    <ul class="account">
+        {{!-- <li><a href="#">Update</a></li> --}}
+        <img class="img_profile avatar-img"src="{{avatar}}" alt='profileImg' />
         <div class="account-infos">
             <h5>{{firstname}} {{lastname}} </h5>
             <h6>@{{username}}</h6>
         </div>
-        <img class='icon_arrow' src='/images/dash_navbar/icons_navbar/svg16.svg' alt='icon' />
-    </div>
+        <li>
+            <a><img class='icon_arrow' src='/images/dash_navbar/icons_navbar/svg16.svg' alt='icon'/></a>
+            <ul class="dropdown">
+                <li><a href="/logout">Log out</a></li>
+            </ul>
+        </li>
+    </ul>
 </nav>
