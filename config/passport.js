@@ -1,20 +1,20 @@
-const LocalStrategy = require("passport-local").Strategy;
+const LocalStrategy = require('passport-local').Strategy
 
-const User = require("../models/User");
+const User = require('../models/User')
 
 const initialize = (passport) => {
   const authenticateUser = (email, password, done) => {
     User.getIdentifiantParams(email, async (error, user) => {
       if (error) {
-        return done(error);
+        return done(error)
       }
       if (!user) {
-        return done(null, false, { message: "Utilisateur inconnu" });
+        return done(null, false, { message: "Utilisateur inconnu" })
       }
       if (!(await User.validPassword(password, user.password))) {
-        return done(null, false, { message: "Mot de passe incorrect" });
+        return done(null, false, { message: "Mot de passe incorrect" })
       }
-      return done(null, user);
+      return done(null, user)
     });
   };
 
@@ -26,14 +26,14 @@ const initialize = (passport) => {
   );
 
   passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.id)
   });
 
   passport.deserializeUser((id, done) => {
     User.getUserById(id, (error, user) => {
-      done(null, user);
+      done(null, user)
     });
   });
 };
 
-module.exports = initialize;
+module.exports = initialize

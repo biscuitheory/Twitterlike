@@ -10,40 +10,23 @@ const { check } = require('express-validator')
 authRouter.use(flash());
 
 // Routes GET //
-// Page d'inscription
-authRouter.get('/signup', (req, res) => {
-    res.render('signup', {
-        style: '/css/layouts/signup.css',
-        title: 'Inscription / Twitter',
-        passwordCheck: req.flash('passwordCheck'),
-        emailCheckExists: req.flash('emailCheckExists'),
-        errors: req.flash('errors'),
-        usernameInvalid: req.flash('usernameInvalid')
-    })
-})
+// Route de la page d'inscription
+authRouter.get('/signup', authController.getSignup)
 
-// Page de connexion
-authRouter.get('/login', (req, res) => {
-    res.render('login', {
-        style: '/css/layouts/login.css',
-        title: 'Connexion / Twitter',
-        errorPassword: req.flash('errorPassword'),
-        userNotFound: req.flash('userNotFound')
-    })
-})
+// Route de la page de connexion
+authRouter.get('/login', authController.getLogin)
 
 // Routes POST //
-// Page d'inscription
+// Route de la page d'inscription après envoi du formulaire
 authRouter.post('/signup',[
     // Utilisation du module express-validator pour check les entrées
     check('password').isLength({ min: 6 }),
     check('tel').isNumeric(),
     check('email').isEmail(),
-  ],(req,res) => {
-    authController.checkSignupInputs(req,res)
-})
+  ], authController.getSignupUpdate
+)
 
-// Page de connexion
+// Route de la page de connexion après envoi du formulaire
 authRouter.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
@@ -51,9 +34,10 @@ authRouter.post('/login', passport.authenticate('local', {
   })
 )
 
+// Route de déconnexion, redirection vers la page d'accueil
 authRouter.get('/logout', (req, res) => {
     req.logout();
-    res.redirect('/home')
+    res.redirect('/')
 });
 
 module.exports = authRouter

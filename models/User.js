@@ -1,5 +1,5 @@
 const connection = require('../config/connectionDb.js')
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 
 class User {
     constructor(props){
@@ -19,11 +19,9 @@ class User {
     // Création d'un utilisateur
     static create(user, hashedPassword){
         const sql = `INSERT INTO users (lastname, firstname, username, birthdate, gender, tel, city, email, password, avatar) VALUES('${user.lastname}', '${user.firstname}', '${user.username}', '${user.birthdate}', '${user.gender}', '${user.tel}', '${user.city}', '${user.email}', '${hashedPassword}', '${user.avatar}')`
-        
         connection.query(sql, function (err, result) {
         if (err) console.log('create user : ' + err)
         console.log("Inscription de l'utilisateur réussie! ✅")
-          // connection.end()
         });
     }
 
@@ -58,14 +56,14 @@ class User {
         })
     }
 
-    // Méthode recherche d'un utilisateur par id
+    // Méthode recherche d'un utilisateur par l'id
     static getUserById(id, done) {
         const query = `SELECT * FROM users WHERE id = '${id}';`;
 
         connection.query(query, (error, data) => {
             if (error) {
-            console.error(`Erreur : ${error}`);
-            return done(error, null);
+                console.error(`Erreur : ${error}`);
+                return done(error, null);
             }
 
             const user = data[0];

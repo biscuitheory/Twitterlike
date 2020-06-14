@@ -178,7 +178,7 @@ ul li ul.dropdown li{
     display: block;
 }
 
-.dashboard-tweetbox {
+.dashboard-tweetbox, .dashboard-profile {
     width: 46vw;
     text-align: start;
     border-right: 1px solid rgba(172, 172, 172, 0.432);
@@ -316,7 +316,7 @@ a {
     padding-right: 1em;
 }
 
-.author-username {
+.author-username, .author-city {
     font-size: 1em;
     padding-right: 1em;
     color: grey;
@@ -336,6 +336,64 @@ a {
 
 .post-text {
     font-size: 1em;
+}
+
+.header-profile {
+    /* border: 1px solid red; */
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 2em;
+}
+
+.back-arrow {
+    height: 4vh;
+}
+
+.header-text {
+    width: auto;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid rgba(172, 172, 172, 0.432);
+    /* border: 1px solid green; */
+}
+
+.profile-bgimg {
+    background-image: url('https://img.aws.la-croix.com/2019/06/25/1201031277/studio-danimation-Pixar-ressort-cartons-jouets-doues-raison-Toy-Story_0_728_305.jpg');
+    height: 26vh;
+}
+
+.profile-img {
+    position: absolute;
+    height: 10em;
+    width: 10em;
+    margin-top: 17vh;
+    border: 0.3em solid #ffffff;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10vh;
+    background-color: #ffffff;
+    height: 16vh;
+    font-size: 1.2em;
+}
+
+.tweets-tab {
+    text-align: center;
+    width: 7vw;
+    padding-bottom: 1em;
+    font-weight: bold;
+    color: #1EA1F2;
+    border-bottom: 2px solid #1EA1F2;
 }
 
 .dashboard-search {

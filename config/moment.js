@@ -53,7 +53,7 @@ moment.locale('fr', {
     //     return /* 0-23 hour, given meridiem token and hour 1-12 */ ;
     // },
     meridiem : function (hours, minutes, isLower) {
-        return hours < 12 ? 'PD' : 'MD';
+        return hours < 12 ? 'PD' : 'MD'
     },
     week : {
         dow : 1, // Monday is the first day of the week.
@@ -61,6 +61,6 @@ moment.locale('fr', {
     }
 });
 
-moment.locale('fr');
+moment.locale('fr')
 
-module.exports = moment;
+module.exports = moment

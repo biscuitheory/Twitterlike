@@ -1,20 +1,34 @@
-const User = require("../models/User.js");
-const bcrypt = require('bcrypt');
-const { validationResult } = require('express-validator');
+const User = require('../models/User.js')
+const bcrypt = require('bcrypt')
+const { validationResult } = require('express-validator')
 
 // instanciation du nombre de saltRounds pour bcrypt
-const saltRounds = 10;
+const saltRounds = 10
 
-exports.createUser = (req,res) => {
-    bcrypt.hash(req.body.password, saltRounds, function(err, hashedPassword) {
-        if (err) console.log('hash : ' + err) ;
-        User.create(req.body, hashedPassword)
-        console.log('Redirection vers la page de connexion')
-        res.redirect('/login')
+// Controller de la route get /signup : affichage de la page d'inscription
+exports.getSignup = (req, res) => {
+    res.render('signup', {
+        style: '/css/layouts/signup.css',
+        title: 'Inscription / Twitter',
+        passwordCheck: req.flash('passwordCheck'),
+        emailCheckExists: req.flash('emailCheckExists'),
+        errors: req.flash('errors'),
+        usernameInvalid: req.flash('usernameInvalid')
     })
 }
 
-exports.checkSignupInputs = (req,res) => {
+// Controller de la route get /login : affichage de la page de connexion
+exports.getLogin = (req, res) => {
+    res.render('login', {
+        style: '/css/layouts/login.css',
+        title: 'Connexion / Twitter',
+        errorPassword: req.flash('errorPassword'),
+        userNotFound: req.flash('userNotFound')
+    })
+}
+
+// Controller de la route post /signup : affichage de la page d'inscription après envoi du formulaire
+exports.getSignupUpdate = (req,res) => {
     const exp = new RegExp("^[a-zA-Z0-9]{3,12}$","g");
     const errors = validationResult(req);
     // Si une erreur est détectée
