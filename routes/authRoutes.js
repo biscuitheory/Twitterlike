@@ -1,12 +1,11 @@
 // Importation des modules
 const express = require('express')
 const authRouter = express.Router()
-const authController = require('../controllers/authController');
+const authController = require('../controllers/authController')
 const User = require('../models/User.js')
-const passport = require("passport");
-const flash = require('connect-flash');
-const isAuth = require("../middleware/isAuth");
-const { check } = require('express-validator');
+const passport = require('passport')
+const flash = require('connect-flash')
+const { check } = require('express-validator')
 
 authRouter.use(flash());
 
@@ -46,22 +45,15 @@ authRouter.post('/signup',[
 
 // Page de connexion
 authRouter.post('/login', passport.authenticate('local', {
-    successRedirect: "/",
-    failureRedirect: "/login",
-    failureFlash: true,
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
   })
 )
 
-// Après succès de la connexion, redirection sur dashboard personalisé
-authRouter.get('/', isAuth, (req, res) => {
-    username = req.user.username
-    res.redirect(`dashboard/${username}`)
-})
-
-
 authRouter.get('/logout', (req, res) => {
     req.logout();
-    res.redirect('/home');
+    res.redirect('/home')
 });
 
 module.exports = authRouter
