@@ -4,7 +4,7 @@
 
 Tech stack: Node.js with Express/Handlebars/Passport, HTML/CSS 
 
-:construction: # ON-GOING PROJECT :construction:
+:construction: WORK IN PROGRESS :construction:
 
 ### Home
 ![Home](/public/images/screens/twitterlike_home.jpg)
