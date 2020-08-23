@@ -3,12 +3,13 @@ require('dotenv').config()
 
 // configuration de la base de données mysql avec dotenv
 const connection = mysql.createConnection({
-    host     : process.env.DB_HOST,
-    user     : process.env.DB_USER,
-    password : process.env.DB_PASS,
-    database : process.env.DB_NAME,
-    port     : process.env.DB_PORT,
-    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+    host     : "eu-cdbr-west-03.cleardb.net",
+    user     : "b22bfbbac1020e",
+    password : "a68c3560",
+    name : "heroku_c8ef5bd7119c9bc"
+    // database : process.env.DB_NAME,
+    // port     : process.env.DB_PORT,
+    // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
 });
 
 // connexion à la base de données
