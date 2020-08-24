@@ -7,8 +7,8 @@ const connection = mysql.createConnection({
     user     : process.env.DB_USER,
     password : process.env.DB_PASS,
     database : process.env.DB_NAME,
-    port     : process.env.DB_PORT,
-    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
+    port     : process.env.DEV_DB_PORT || process.env.PORT,
+    // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
 });
 
 // connexion à la base de données
